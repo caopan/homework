@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0; padding:0;}
+#div1{width:200px;height:200px; background:#ccc;}
+</style>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	oDiv.onclick=function(){
+		move(this,{width:'500px',height:'500px'},{time:3000,type:'linear',end:function(){
+			move(oDiv,{background:'red'});
+		}});
+	};
+	function move(obj,json,options){
+		options=options||{};
+		options.type=options.type||'linear';
+		options.time=options.time||700;
+		obj.style.transition=options.time+'ms all '+options.type;
+		for(var name in json){
+			obj.style[name]=json[name];
+		}
+		function fn1(){
+			obj.removeEventListener('transitionend',fn1,false);
+			options.end&&options.end();
+		}
+		obj.addEventListener('transitionend',fn1,false);
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

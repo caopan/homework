@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+@-webkit-keyframes test{
+	from{-webkit-transform:translateX(0px);}
+	to{-webkit-transform:translateX(-600px);}
+}
+#main{width:600px;height:50px;overflow:hidden;margin:100px auto;;border:1px solid #000;}
+#box{width:1800px;height:50px;background:-webkit-repeating-linear-gradient(-30deg,red 0px,red 10px,green 10px,green 20px);
+-webkit-animation-name:test;
+-webkit-animation-duration:5s;
+-webkit-animation-timing-function:linear;
+-webkit-animation-iteration-count:infinite;
+/*
+简写方式：
+-webkit-animation:test 5s linear infinite;
+*/
+}
+#box:hover{-webkit-animation-play-state:paused;}
+</style>
+<script>
+
+</script>
+</head>
+
+<body>
+<div id="main">
+	 <div id="box"></div>
+</div>
+</body>
+</html>
